@@ -15,6 +15,21 @@
     <%= f.label :name %><br />
     <%= f.text_field :name %>
   </div>
+  
+  <%= f.fields_for :ingredients do |ff| %>
+    <div class="field nested_1">
+    <%= ff.label :ingredient_name %><br />
+    <%= ff.text_field :name %>  
+    </div>
+  
+      <%= f.fields_for :recipe_ingredients do |fff| %>
+       <div class="field nested_2">
+         <%= fff.label :ingredient_quantity %><br />
+         <%= fff.text_field :quantity %>  
+       </div>
+      <% end %>   
+  <% end %>
+  
   <div class="field">
     <%= f.label :description %><br />
     <%= f.text_area :description %>
