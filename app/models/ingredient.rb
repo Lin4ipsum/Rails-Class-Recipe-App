@@ -6,8 +6,6 @@ class Ingredient < ActiveRecord::Base
   before_save :normalize
   
   
-  private
-  
   def normalize
     self.name = name.mb_chars.downcase.strip.normalize
   end
