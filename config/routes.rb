@@ -1,4 +1,8 @@
 Recipeapp::Application.routes.draw do
+  resources :quantities
+
+  resources :quantity_ingredients
+
   resources :recipe_ingredients
 
   resources :recipes

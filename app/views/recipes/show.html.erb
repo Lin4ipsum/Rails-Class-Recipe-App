@@ -11,14 +11,17 @@
 </p>
 
 <p><b>Ingredients:</b>
+  <% @recipe.recipe_ingredients.each do |ri| %>
+    <%= @recipe.ingredients.find_by_id(ri.ingredient_id).name %> 
+    <%= ri.quantity %>
+  <% end %>
  <ul>
-   <% @recipe.recipe_ingredients.each do |recipe_ingredient| %>
-     <li><%= @recipe.ingredients.find_by_id(recipe_ingredient.ingredient_id).name %> , <%= recipe_ingredient.ingredient_id%>></li>
-
-   <% end %>    
+  
+    
  </ul>
  </p>
 
 
 <%= link_to 'Edit', edit_recipe_path(@recipe) %> |
 <%= link_to 'Back', recipes_path %>
+

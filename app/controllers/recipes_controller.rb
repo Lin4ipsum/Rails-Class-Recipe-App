@@ -25,7 +25,11 @@ class RecipesController < ApplicationController
   # GET /recipes/new.json
   def new
     @recipe = Recipe.new
-
+    2.times { @recipe.ingredients.build}
+    for ingredient in @recipe.ingredients do
+      ingredient.recipe_ingredients.build
+    end
+    
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @recipe }

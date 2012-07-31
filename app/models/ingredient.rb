@@ -7,12 +7,7 @@ class Ingredient < ActiveRecord::Base
   accepts_nested_attributes_for :recipe_ingredients
  
   validates_uniqueness_of :name, :case_senstive => false
-  
   before_save :normalize
-  
-  def normalize
-    self.name = name.mb_chars.downcase.strip.normalize
-  end
-  
+
   
 end

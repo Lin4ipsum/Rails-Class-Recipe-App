@@ -22,10 +22,10 @@
     <%= ff.text_field :name %>  
     </div>
   
-      <%= f.fields_for :recipe_ingredients do |fff| %>
+      <%= ff.fields_for :quantity_ingredients do |fff| %>
        <div class="field nested_2">
-         <%= fff.label :ingredient_quantity %><br />
-         <%= fff.text_field :quantity %>  
+         <%= fff.label :quantity %><br />
+         <%= fff.text_field :quantity_ingredients %>  
        </div>
       <% end %>   
   <% end %>
