@@ -9,5 +9,9 @@ class Ingredient < ActiveRecord::Base
   validates_uniqueness_of :name, :case_senstive => false
   before_save :normalize
 
+
+   def normalize
+     self.name = self.name.downcase.strip if self.name
+   end
   
 end
