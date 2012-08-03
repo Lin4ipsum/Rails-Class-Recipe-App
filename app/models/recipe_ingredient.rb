@@ -1,17 +1,12 @@
 class RecipeIngredient < ActiveRecord::Base
-  attr_accessible :quantity_attributes,
-                  :ingredient_attributes, 
-                  :recipe_attributes, 
-                  :name, 
+  attr_accessible :name, 
                   :amount
   
-  belongs_to :ingredient
-  belongs_to :recipe
-  belongs_to :quantity
+  belongs_to :ingredient, :inverse_of => :recipe_ingredients
+  belongs_to :recipe, :inverse_of => :recipe_ingredients
+  belongs_to :quantity, :inverse_of => :recipe_ingredients
  
   has_many :recipe_ingredients
-
-  accepts_nested_attributes_for :recipe, :ingredient, :quantity
   
   def name
     self.ingredient.name if self.ingredient
@@ -22,7 +17,7 @@ class RecipeIngredient < ActiveRecord::Base
   end
   
   def amount
-    self.amount if self.quantity  
+    self.quantity.amount if self.quantity  
   end
   
   def amount=(str)

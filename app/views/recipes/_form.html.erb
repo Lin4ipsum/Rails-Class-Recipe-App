@@ -21,19 +21,12 @@
      <%= f.text_area :description %>
    </div>
   
-  <%= fields_for :recipe_ingredients do |f| %>
-    <div class="field">
-      <%= f.label :ingredient_name %><br />
-      <%= f.text_field :name %>
-    </div>
-  
-    <div class="field">
-     <%= f.label :quantity %><br />
-     <%= f.text_field :amount %>
-    </div>
+  <%= f.fields_for :recipe_ingredients do |builder| %>
+    <% render 'recipe_ingredients/recipe_ingredient_fields', :f => builder %>
   <% end %>
   
   <div class="actions">
     <%= f.submit %>
   </div>
-  <% end %>
+  
+<% end %>

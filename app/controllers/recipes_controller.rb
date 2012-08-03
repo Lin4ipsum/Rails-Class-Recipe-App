@@ -25,6 +25,7 @@ class RecipesController < ApplicationController
   # GET /recipes/new.json
   def new
     @recipe = Recipe.new
+    3.times {@recipe.recipe_ingredients.build}
     
     respond_to do |format|
       format.html # new.html.erb
@@ -41,7 +42,6 @@ class RecipesController < ApplicationController
   # POST /recipes.json
   def create
     @recipe = Recipe.new(params[:recipe])
-    @recipe.recipe_ingredients.build(params[:recipe_ingredients])
     
     respond_to do |format|
       if @recipe.save
@@ -58,7 +58,8 @@ class RecipesController < ApplicationController
   # PUT /recipes/1.json
   def update
     @recipe = Recipe.find(params[:id])
-
+    3.times { @recipe.recipe_ingredients.build}
+    
     respond_to do |format|
       if @recipe.update_attributes(params[:recipe])
         format.html { redirect_to @recipe, notice: 'Recipe was successfully updated.' }

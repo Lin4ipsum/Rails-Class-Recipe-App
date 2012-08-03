@@ -1,0 +1,17 @@
+<fieldset class="fields">
+  <h2>Add an ingredient</h2>
+    <div class="field">
+      <%= f.label :ingredient_name %><br />
+      <%= f.text_field :name %>
+    </div>
+
+    <div class="field">
+     <%= f.label :quantity %><br />
+     <%= f.text_field :amount %>
+  </div>
+  
+  <div>
+   destroy: <%= f.check_box :_destroy %>
+  </div>
+  
+</fieldset>

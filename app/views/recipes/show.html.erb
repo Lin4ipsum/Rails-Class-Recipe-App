@@ -13,8 +13,9 @@
 <p><b>Ingredient + Quantities:</b>
   <ul>
     <% @recipe.recipe_ingredients.each do |ri| %>
-      <li><%= ri.name %></li>
-      <li><%= ri.amount %> </li>
+      <% if ri.name%>
+      <li><%= ri.name %> , <%= ri.amount %> </li>
+      <% end %>
     <% end %>
   </ul>
  </p>
