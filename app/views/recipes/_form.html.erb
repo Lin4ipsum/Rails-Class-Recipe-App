@@ -16,20 +16,24 @@
     <%= f.text_field :name %>
   </div>
   
-  <%= f.fields_for :ingredients do |ff| %>
-    <div class="field">
-      <%= ff.label :ingredient_name %><br />
-      <%= ff.text_field :name %>
-   </div>
-   <% end %>
-  
   <div class="field">
      <%= f.label :description %><br />
      <%= f.text_area :description %>
    </div>
   
+  <%= fields_for :recipe_ingredients do |f| %>
+    <div class="field">
+      <%= f.label :ingredient_name %><br />
+      <%= f.text_field :name %>
+    </div>
+  
+    <div class="field">
+     <%= f.label :quantity %><br />
+     <%= f.text_field :amount %>
+    </div>
+  <% end %>
+  
   <div class="actions">
     <%= f.submit %>
   </div>
-  
-<% end %>
+  <% end %>

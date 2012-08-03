@@ -1,10 +1,14 @@
 class Quantity < ActiveRecord::Base
-  attr_accessible :amount
+  attr_accessible :amount, :recipe_ingredients_attributes
   
   has_many :recipe_ingredients
-  has_many :ingredients, :through => :recipe_ingredients
-  has_many :quantities, :through => :recipe_ingredients
-
-  validates_uniqueness_of :name, :case_senstive => false
   
+  accepts_nested_attributes_for :recipe_ingredients
+  
+#  before_save :normalize
+  
+  private
+    def normalize
+      self.amount = self.amount.downcase.strip if self.amount
+    end
 end

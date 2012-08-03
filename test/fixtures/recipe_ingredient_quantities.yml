@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  recipe_ingredient_id: 1
+  quantity_id: 1
+
+two:
+  recipe_ingredient_id: 1
+  quantity_id: 1
