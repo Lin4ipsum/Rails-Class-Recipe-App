@@ -7,7 +7,21 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
+  
+  <div class="user_nav">
+    <% if current_user %>
+      You are logged in as <%= current_user.email %>, rad dude!
+      <% link_to "Logout", logout_path %>
+      
+    <% else %>
+      <% link_to "Login", login_path %>
+    <% end %>
+  </div>
+  
+  <ul class= "main_nav">
+     <%= link_to "Logout", logout_path %>
+   </ul>
+  
 <%= yield %>
 
 </body>

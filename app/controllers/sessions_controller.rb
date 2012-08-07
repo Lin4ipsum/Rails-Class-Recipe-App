@@ -16,8 +16,8 @@ class SessionsController < ApplicationController
   end
      
   def destroy
-     session.destroy
-      redirect_to login_path, :notice => "You are succesfully logged out."
+     logout
+     redirect_to login_path, :notice => "You are succesfully logged out."
   end
   
 
