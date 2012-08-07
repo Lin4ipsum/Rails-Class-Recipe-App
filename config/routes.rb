@@ -1,4 +1,8 @@
 Recipeapp::Application.routes.draw do
+  get "/login" => "sessions#new"
+  post "/sessions" => "sessions#create" 
+ 
+  
   resources :users
 
   resources :recipe_ingredient_quantities
