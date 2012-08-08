@@ -13,11 +13,16 @@
  */
 .main_nav {
 	float:right;
-	background-color:#D6D6FF;	
+	background-color:#D6D6FF;
+	font-family:"Times New Roman",Times,serif;	
 }
 
 .user_nav {
 	font-style:italic;
 	text-align:right;
 	background-color:#D6D6FF;
+	font-family:"Times New Roman",Times,serif;
+}
+.main{
+	font-family:"Times New Roman",Times,serif;
 }

@@ -2,20 +2,14 @@ Recipeapp::Application.routes.draw do
   get "/login" => "sessions#new"
   post "/sessions" => "sessions#create" 
   get '/logout' => "sessions#destroy"
+  get '/signup' => "users#new"
   
-  resources :users
-
-  resources :recipe_ingredient_quantities
-
-  resources :quantities
-
-  resources :quantity_ingredients
-
-  resources :recipe_ingredients
-
-  resources :recipes
-
-  resources :ingredients
+  resources :users,
+            :quantities,
+            :quantity_ingredients,
+            :recipe_ingredients,
+            :recipes,
+            :ingredients
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
