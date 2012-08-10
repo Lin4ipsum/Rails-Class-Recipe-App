@@ -17,11 +17,6 @@
     <%= f.text_field :name %>
   </div>
   
-  <div class="field">
-     <%= f.label :description, "Recipe Description" %><br />
-     <%= f.text_area :description %>
-   </div>
-  
   <%= f.fields_for :recipe_ingredients do |builder| %>
     <% render 'recipe_ingredient_fields', :f => builder %>
   <% end %>
@@ -29,6 +24,11 @@
   <div>
     <%= link_to_add_fields "Add Recipe Ingredient", f, :recipe_ingredients %>
   </div>
+  
+  <div class="field">
+     <%= f.label :description, "Recipe Instructions" %><br />
+     <%= f.text_area :description %>
+   </div>
   
   <div class="actions">
     <%= f.submit %>
